@@ -13,13 +13,15 @@ public class Main {
         boolean exit = false;
         while (!exit) {
             System.out.println("Welcome to the Java Library! The date and time is currently " + LocalDateTime.now());
-            System.out.println("1. See available Books");
+            System.out.println("1. See all Books?");
             //Show all books
-            System.out.println("2. Checkout a Book");
+            System.out.println("2. Checkout a Book?");
             //User should check out an available book
-            System.out.println("3. Sort Books?");
+            System.out.println("3 Return a Book?");
+            // Return Books
+            System.out.println("4. Sort Books?");
             //Sort Books by Genre or year published
-            System.out.println("4. Exit");
+            System.out.println("5. Exit");
             //Exit program
             System.out.println("Choose an option: ");
 
@@ -30,20 +32,31 @@ public class Main {
                     library.listAllBooks();
                     break;
                 case 2:
-                    System.out.println("Which book would you like to print out?");
+                    System.out.println("Which book would you like to checkout?");
                     library.listAllAvailableBooks();
                     
-                    int bookSelection = Integer.parseInt(scanner.nextLine());
-                    library.retrieveBookByNumber(bookSelection);
+                    int bookSelectionCheckout = Integer.parseInt(scanner.nextLine());
+                    library.retrieveBookByNumberCheckout(bookSelectionCheckout);
 
                     System.out.println("Thanks, Have a great day!");
                     break;
 
                 case 3:
+                System.out.println("Which book would you like to return?");
+                library.listAllBooksToReturn();
+                
+                int bookSelectionReturn = Integer.parseInt(scanner.nextLine());
+                library.retrieveBookByNumberReturn(bookSelectionReturn);
+
+                System.out.println("Thanks, Have a great day!");
+
+                    break;
+
+                case 4:
                     sort();
                     break;
                      
-                case 4:
+                case 5:
                 default:
                     exit = true;
             }

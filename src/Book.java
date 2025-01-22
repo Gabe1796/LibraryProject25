@@ -43,4 +43,8 @@ public class Book {
     public void checkoutBook() {
         status = false;
     }
+
+    public void returnBook() {
+        status = true;
+    }
 }

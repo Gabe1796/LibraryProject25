@@ -62,11 +62,29 @@ public class Library {
         }
     }
 
-    public void retrieveBookByNumber(int correctBookNumber) {
+    public void listAllBooksToReturn() { // List all available Books to return and print
+        for (Book unAvailableBooks : books) {
+            if (unAvailableBooks.recieveStatus() == false) {
+                System.out.println(unAvailableBooks.recieveBookNumber() + ". " + unAvailableBooks.recieveName());
+            }
+
+        }
+    }
+
+    public void retrieveBookByNumberCheckout(int correctBookNumberCheckout) {
         for (Book book : books) {
-            if (book.recieveBookNumber() == (correctBookNumber)) {
+            if (book.recieveBookNumber() == (correctBookNumberCheckout)) {
                 book.checkoutBook();
         }
     }
+    
+}
+
+public void retrieveBookByNumberReturn(int correctBookNumberReturn) {
+    for (Book book : books) {
+        if (book.recieveBookNumber() == (correctBookNumberReturn)) {
+            book.returnBook();
+    }
+}
 }
 }
